@@ -3,178 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HIGH IN THE CLOUDS – LOVER EDITIONS</title>
-
-<meta name="description" content="HIGH IN THE CLOUDS LOVER – verschiedene Premium Editions wie Mango Coco, Blueberry, Coco, Mystery Jungle und mehr.">
-<meta name="keywords" content="High in the Clouds, Lover, Mango Coco, Blueberry, Coco, Mystery Jungle, Jungle Lover, Blueberry Mango, Blueberry Coco">
-<meta name="author" content="HIGH IN THE CLOUDS LOVER">
-<meta name="robots" content="index, follow">
+<title>LOVER – Premium Editions</title>
 
 <style>
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #050015, #000);
   font-family: Arial, sans-serif;
+  background: #0a0a0a;
   color: white;
   overflow-x: hidden;
 }
 
-/* Logo */
-.logo {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 42px;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ffd86b;
-  text-shadow: 0 0 20px #ffd86b, 0 0 40px #ff9b3d;
+/* GRID */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 40px;
 }
 
-/* Button-Leiste */
-.flavors {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 25px;
-  gap: 10px;
-  padding: 0 10px;
-}
-
-.flavor-btn {
-  padding: 10px 18px;
-  border-radius: 14px;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-  color: white;
-  background: #151515;
-  transition: 0.25s;
-  box-shadow: 0 0 10px rgba(255, 216, 107, 0.6);
-}
-
-.flavor-btn:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 20px rgba(255, 216, 107, 0.9);
-}
-
-/* Hauptbereich */
-.main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-}
-
-/* Flasche */
-.bottle {
-  width: 340px;
-  max-width: 90vw;
+/* FLAVOUR CARDS */
+.flavour-card {
+  background: rgba(255,255,255,0.05);
   border-radius: 18px;
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.9);
-  transition: 0.3s;
-}
-
-/* Info-Box */
-#flavor-info {
-  width: 90%;
-  max-width: 800px;
-  margin: 25px auto 50px auto;
-  padding: 22px;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 20px;
-  text-align: center;
-  font-size: 17px;
-  line-height: 1.6;
-  box-shadow: 0 0 22px rgba(255, 216, 107, 0.5);
-}
-
-#flavor-info h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
-  font-size: 22px;
-}
-
-/* Hintergrund-Looks pro Edition */
-body.mango_coco {
-  background: radial-gradient(circle at top, #ffb347, #000);
-}
-body.blueberry {
-  background: radial-gradient(circle at top, #1b1b5c, #000);
-}
-body.coco {
-  background: radial-gradient(circle at top, #1b2f3a, #000);
-}
-body.coco_blueberry {
-  background: radial-gradient(circle at top, #243b7b, #000);
-}
-body.blueberry_coco {
-  background: radial-gradient(circle at top, #1a275f, #000);
-}
-body.mystery_jungle {
-  background: radial-gradient(circle at top, #00331c, #000);
-}
-body.blueberry_mango {
-  background: radial-gradient(circle at top, #3b1b5c, #000);
-}
-body.jungle_lover {
-  background: radial-gradient(circle at top, #004422, #000);
-}
-body.mango {
-  background: radial-gradient(circle at top, #ff9b3d, #000);
-}
-</style>
-</head>
-
-<body class="default">
-
-<div class="logo">HIGH IN THE CLOUDS – LOVER</div>
-
-<div class="flavors">
-  <button class="flavor-btn" onclick="changeFlavor('mango_coco')">🥭🥥 Mango Coco</button>
-  <button class="flavor-btn" onclick="changeFlavor('blueberry')">💙 Blueberry</button>
-  <button class="flavor-btn" onclick="changeFlavor('coco')">🥥 Coco</button>
-  <button class="flavor-btn" onclick="changeFlavor('coco_blueberry')">🥥💙 Coco Blueberry</button>
-  <button class="flavor-btn" onclick="changeFlavor('blueberry_coco')">💙🥥 Blueberry Coco</button>
-  <button class="flavor-btn" onclick="changeFlavor('mystery_jungle')">🌀🌴 Mystery Jungle</button>
-  <button class="flavor-btn" onclick="changeFlavor('blueberry_mango')">💙🥭 Blueberry Mango</button>
-  <button class="flavor-btn" onclick="changeFlavor('jungle_lover')">🌴 Jungle Lover</button>
-  <button class="flavor-btn" onclick="changeFlavor('mango')">🥭 Mango</button>
-</div>
-
-<div class="main">
-  <img id="bottle" class="bottle" src="shared image (1).jpg" alt="HIGH IN THE CLOUDS LOVER Edition" />
-</div>
-
-<div id="flavor-info">
-  <h2>Wähle eine Edition</h2>
-  <p>Klick oben auf eine Edition, um das passende Bild und die Beschreibung zu sehen.</p>
-</div>
-
-<script>
-let sound = new Audio();
-sound.volume = 0.4;
-
-function setBodyClass(cls) {
-  document.body.className = cls;
-}
-
-function changeFlavor(type) {
-  const bottle = document.getElementById("bottle");
-  const info = document.getElementById("flavor-info");
-
-  if (type === "mango_coco") {
-    setBodyClass("mango_coco");
-    bottle.src = "shared image (1).jpg";
-    info.innerHTML = "<h2>🥭🥥 Mango Coco Lover</h2><p>Tropische Kombi aus saftiger Mango und cremiger Kokosnuss – sonniger, goldener Cloud‑Vibe.</p>";
-  }
-
-  if (type === "blueberry") {
-    setBodyClass("blueberry");
-    bottle.src = "shared image (2).jpg";
-    info.innerHTML = "<h2>💙 Blueberry Lover</h2><p>Intensiver Blaubeer‑Flavor mit tiefblauem, wolkigem Himmel – fruchtig, frisch, dreamy.</p>";
-  }
-
-  if (type === "coco") {
-    setBodyClass("coco");
-    bottle.src = "shared image (3).jpg";
-    info.innerHTML = "<h2>🥥 Coco Lover</h2><p>Reine Kokos‑Vibes mit weißen Wolken und tropischem Feeling – wie Urlaub
+  padding: 20px;
+  text-align: center
