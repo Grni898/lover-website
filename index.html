@@ -3,57 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LOVER DRINKS</title>
+<title>LOVER DRINKS – PREMIUM</title>
 
 <style>
 body {
   margin: 0;
-  background: radial-gradient(circle at center, #0a0a0a, #000000);
+  background: linear-gradient(180deg, #000, #0a0010, #000);
   font-family: Arial, sans-serif;
+  color: white;
   overflow-x: hidden;
+  animation: fadeIn 1.2s ease-in-out;
 }
 
-/* Glow Logo */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Logo */
 .logo {
   text-align: center;
-  margin-top: 60px;
-  font-size: 60px;
+  margin-top: 40px;
+  font-size: 80px;
   font-weight: 900;
   color: #ff4df0;
-  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
+  text-shadow: 0 0 25px #ff4df0, 0 0 60px #ff4df0;
+  animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px #ff4df0; }
+  to { text-shadow: 0 0 60px #ff4df0; }
 }
 
 /* Flavor Buttons */
 .flavors {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  gap: 20px;
+  margin-top: 50px;
+  gap: 30px;
 }
 
 .flavor-btn {
-  padding: 15px 30px;
-  border-radius: 12px;
+  padding: 20px 45px;
+  border-radius: 16px;
   border: none;
-  font-size: 20px;
+  font-size: 26px;
   cursor: pointer;
   color: white;
-  background: #222;
-  transition: 0.2s;
+  background: #1a1a1a;
+  transition: 0.25s;
+  box-shadow: 0 0 15px #ff4df0;
 }
 
 .flavor-btn:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #ff4df0;
+  transform: scale(1.15);
+  box-shadow: 0 0 30px #ff4df0;
 }
 
 /* Bottle */
 .bottle {
-  width: 300px;
-  margin: 60px auto;
+  width: 420px;
+  margin: 80px auto;
   display: block;
-  filter: drop-shadow(0 0 25px #ff4df0);
+  filter: drop-shadow(0 0 40px #ff4df0);
   transition: 0.3s;
+}
+
+/* Flavor Info Box */
+#flavor-info {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 25px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 1.6;
+  display: none;
+  box-shadow: 0 0 25px #ff4df0;
+  animation: fadeIn 0.5s ease-in-out;
 }
 </style>
 </head>
@@ -65,10 +95,12 @@ body {
 <div class="flavors">
   <button class="flavor-btn" onclick="changeFlavor('peach')">🍑 Peach Lover</button>
   <button class="flavor-btn" onclick="changeFlavor('blue')">💙 Blueberry Lover</button>
-  <button class="flavor-btn" onclick="changeFlavor('mango')">🥭 Mango Lover</button>
+  <button class="flavor-btn" onclick="changeFlavor('coco')">🥥 Coco Lover</button>
 </div>
 
-<img id="bottle" class="bottle" src="https://via.placeholder.com/300x600/ff4df0/ffffff?text=LOVER" />
+<img id="bottle" class="bottle" src="https://via.placeholder.com/420x900/ff4df0/ffffff?text=LOVER" />
+
+<div id="flavor-info"></div>
 
 <script>
 let sound = new Audio();
@@ -76,22 +108,25 @@ sound.volume = 0.4;
 
 function changeFlavor(type) {
   const bottle = document.getElementById("bottle");
+  const info = document.getElementById("flavor-info");
 
   if (type === "peach") {
-    bottle.src = "https://via.placeholder.com/300x600/faa/fff?text=PEACH+LOVER";
-    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+    bottle.src = "https://via.placeholder.com/420x900/faa/fff?text=PEACH+LOVER";
+    info.innerHTML = "<h2>🍑 Peach Lover</h2>Fruchtiger Pfirsich‑Kick mit Premium‑Glow und smoothen Vibes.";
   }
 
   if (type === "blue") {
-    bottle.src = "https://via.placeholder.com/300x600/55f/fff?text=BLUE+LOVER";
-    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+    bottle.src = "https://via.placeholder.com/420x900/55f/fff?text=BLUEBERRY+LOVER";
+    info.innerHTML = "<h2>💙 Blueberry Lover</h2>Frische Blaubeere mit neonblauem Aroma und Galaxy‑Feeling.";
   }
 
-  if (type === "mango") {
-    bottle.src = "https://via.placeholder.com/300x600/fc3/000?text=MANGO+LOVER";
-    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+  if (type === "coco") {
+    bottle.src = "https://via.placeholder.com/420x900/fff/000?text=COCO+LOVER";
+    info.innerHTML = "<h2>🥥 Coco Lover</h2>Cremiger Kokos‑Geschmack mit tropischem Premium‑Feeling.";
   }
 
+  info.style.display = "block";
+  sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
   sound.play();
 }
 </script>
