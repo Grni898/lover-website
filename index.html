@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOVER DRINKS</title>
+
+<style>
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #0a0a0a, #000000);
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glow Logo */
+.logo {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 60px;
+  font-weight: 900;
+  color: #ff4df0;
+  text-shadow: 0 0 20px #ff4df0, 0 0 40px #ff4df0;
+}
+
+/* Flavor Buttons */
+.flavors {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.flavor-btn {
+  padding: 15px 30px;
+  border-radius: 12px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  background: #222;
+  transition: 0.2s;
+}
+
+.flavor-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff4df0;
+}
+
+/* Bottle */
+.bottle {
+  width: 300px;
+  margin: 60px auto;
+  display: block;
+  filter: drop-shadow(0 0 25px #ff4df0);
+  transition: 0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo">LOVER DRINKS</div>
+
+<div class="flavors">
+  <button class="flavor-btn" onclick="changeFlavor('peach')">🍑 Peach Lover</button>
+  <button class="flavor-btn" onclick="changeFlavor('blue')">💙 Blueberry Lover</button>
+  <button class="flavor-btn" onclick="changeFlavor('mango')">🥭 Mango Lover</button>
+</div>
+
+<img id="bottle" class="bottle" src="https://via.placeholder.com/300x600/ff4df0/ffffff?text=LOVER" />
+
+<script>
+let sound = new Audio();
+sound.volume = 0.4;
+
+function changeFlavor(type) {
+  const bottle = document.getElementById("bottle");
+
+  if (type === "peach") {
+    bottle.src = "https://via.placeholder.com/300x600/faa/fff?text=PEACH+LOVER";
+    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+  }
+
+  if (type === "blue") {
+    bottle.src = "https://via.placeholder.com/300x600/55f/fff?text=BLUE+LOVER";
+    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+  }
+
+  if (type === "mango") {
+    bottle.src = "https://via.placeholder.com/300x600/fc3/000?text=MANGO+LOVER";
+    sound.src = "https://cdn.pixabay.com/download/audio/2022/03/15/audio_7b3e6f.mp3?filename=pop-110271.mp3";
+  }
+
+  sound.play();
+}
+</script>
+
+</body>
+</html>
